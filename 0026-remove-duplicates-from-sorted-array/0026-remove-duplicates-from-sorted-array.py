@@ -1,8 +1,12 @@
 '''
 要in-place不能用stack 要用替換的
 '''
+
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
+        nums[:] = sorted(set(nums))    ###set去重複 sorted()排序  
+        return len(nums)
+'''
         if not nums:
             return False
         num_1 = 1                           ###第一個數字[0]一定會是對的 不用管
@@ -11,3 +15,4 @@ class Solution:
                 nums[num_1] = nums[num_2]  ###把他搬到對的位置
                 num_1 += 1
         return num_1        
+'''
